@@ -1,0 +1,32 @@
+#Funcion que calcula la edad actual de una persona (tomando en cuenta solo el año)
+
+from datetime import datetime
+today = datetime.today()
+def edadPersona(fecNaci):
+    anio = int(fecNaci[6:]) #slicing # Recuerda cadena[inicio:final:saltos]
+    diffanio = int(today.year) - anio
+    return diffanio
+
+print("Ingresa tu fecha de nacimiento: " + "El formato debe ser dd/mm/yy")
+fechaNaci = input()
+
+print(edadPersona(fechaNaci))
+
+
+#Funcion que calcula la edad actual de una persona (mes y dia y año)
+from datetime import datetime
+today = datetime.today()
+def edadPersona(fecNaci):
+    fecFormat  = datetime.strptime(fecNaci, "%Y/%m/%d").date()
+    #print(fecFormat)
+    edad = (today.date() - fecFormat).days
+    #print(today.date())
+    edad = edad / 365
+    #return edad
+    print("Tu edad es: " +str(edad))
+
+print("Ingresa tu fecha de nacimiento: " + "El formato debe ser YYYY/MM/DD")
+fechaNaci = input()
+
+#print(edadPersona(fechaNaci))
+edadPersona(fechaNaci)
